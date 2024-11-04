@@ -1,9 +1,2 @@
 matplotlib
-streamlit
-numpy
-pandas
 scipy
-math
-requests
-json
-
