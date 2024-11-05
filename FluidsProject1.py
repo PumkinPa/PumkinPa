@@ -232,8 +232,9 @@ def main():
         # Pipe parameters
         diameter = st.number_input(
             f"Pipe Diameter ({unit_systems[unit_system]['length']})",
-            min_value=0.1,
-            value=4.0
+            min_value=0.001,
+            value=4.0,
+            format="%.2e"
         )
         
         length = st.number_input(
