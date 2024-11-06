@@ -151,7 +151,7 @@ def calculate_pressure_drop(velocity, diameter, length, density, viscosity):
         st.warning("Warning: Flow is laminar! Results may not be accurate.")
     
     # Calculate friction factor using Blasius equation
-    f =  blasius_equation(Re)
+    f = 2 * blasius_equation(Re)
     
     # Calculate pressure drop
     dp = f * (length/diameter) * density * (velocity**2) / 2
