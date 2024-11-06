@@ -139,7 +139,7 @@ def calculate_reynolds(velocity, diameter, density, viscosity):
     """Calculate Reynolds number"""
     return (density * velocity * diameter) / viscosity
 
-def blasius_equation(Re, a=0.1582, n=0.25):
+def blasius_equation(Re, a=0.1505, n=0.2458):
     """Blasius equation for friction factor"""
     return a * Re**(-n)
 
