@@ -153,7 +153,7 @@ def calculate_pressure_drop(velocity, diameter, length, density, viscosity):
     
     
     # Calculate pressure drop
-    dp = ((Re) * density * velocity ** 2) / diameter
+    dp = ((blasius_equation(Re)) * density * velocity ** 2) / diameter
     
     return dp
 
