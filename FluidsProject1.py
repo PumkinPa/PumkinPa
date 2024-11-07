@@ -169,7 +169,7 @@ def main():
     # Create plots
     st.header("Analysis Plots")
     
-    tab1, tab2, tab3 = st.tabs(["Figure E7.4a Data", "Blasius Equation", "LLM Assistant"])
+    tab1, tab2 = st.tabs(["Figure E7.4a Data", "Blasius Equation"])
     
     with tab1:
         # Perform curve fit on Figure E7.4a data
