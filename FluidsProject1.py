@@ -163,7 +163,7 @@ def main():
     with col2:
         st.metric(
             f"Pressure Drop ({unit_systems[unit_system]['pressure']})", 
-            f"{dp:.2f}"
+            f"{dp:.5f}"
         )
     
     # Create plots
