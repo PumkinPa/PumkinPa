@@ -200,24 +200,22 @@ def main():
         """)
     
     with tab2:
-        Re = np.logspace(3.5, 5, 100)
-        f = 4 * blasius_equation(Re)
+        # Perform curve fit on Figure E7.4a data
+        popt, pcov = curve_fit(power_law, pi2_E4a, pi1_E4a)
+        
+        # Generate points for the fitted curve
+        Re_fit = np.logspace(np.log10(min(pi2_E4a)), np.log10(max(pi2_E4a)), 100)
+        pi1_fit = power_law(Re_fit, *popt)
         
         fig2, ax2 = plt.subplots(figsize=(10, 6))
-        ax2.plot(Re, f, 'b-', label='Blasius equation')
-        
-        # Mark current operating point
-        current_f = 4 * blasius_equation(Re)
-        ax2.plot(Re, current_f, 'ro', label='Current Operating Point')
-        
-        ax2.set_xlabel('Reynolds Number (Re)')
-        ax2.set_ylabel('Friction Factor (f)')
-        ax2.grid(True, which="both", ls="-")
-        ax2.legend()
-        
+        ax1.loglog(Re_fit, pi1_fit, 'k-', label=f'Curve Fit (y = {popt[0]:.4f}x^{popt[1]:.4f})')
+        ax1.loglog(pi2_E4a, pi1_E4a, 'b*', label='Experimental Data')
+        ax1.set_xlabel('Reynolds Number (Re)')
+        ax1.set_ylabel('Π₁ (D∆p/ρV²)')
+        ax1.grid(True, which="both", ls="-")
+        ax1.legend()
         plt.tight_layout()
         st.pyplot(fig2)
-
     # Additional information
     st.header("Additional Information")
     st.write(f"""
