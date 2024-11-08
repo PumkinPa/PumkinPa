@@ -189,6 +189,18 @@ def main():
         ax1.legend()
         plt.tight_layout()
         st.pyplot(fig1)
+
+         fig2, ax1 = plt.subplots(figsize=(10, 6))
+        ax1.loglog(Re_fit, pi1_fit, 'k-', label=f'Curve Fit (y = {popt[0]:.4f}x^{popt[1]:.4f})')
+        ax1.loglog(pi2_E4a, pi1_E4a, 'b*', label='Experimental Data')
+        ax1.loglog(Re, blasius_equation(Re), 'ro', label='Current Operating Point') 
+        ax1.set_xlabel('Reynolds Number (Re)')
+        ax1.set_ylabel('Π₁ (D∆p/ρV²)')
+        ax1.grid(True, which="both", ls="-")
+        ax1.legend()
+        plt.tight_layout()
+        st.pyplot(fig1)
+        
         
         st.write(f"""
         Curve fit equation: Π₁ = {popt[0]:.4f} × Re^({popt[1]:.4f})
