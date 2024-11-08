@@ -190,7 +190,7 @@ def main():
         plt.tight_layout()
         st.pyplot(fig1)
 
-         fig2, ax1 = plt.subplots(figsize=(10, 6))
+        fig2, ax1 = plt.subplots(figsize=(10, 6))
         ax1.loglog(Re_fit, pi1_fit, 'k-', label=f'Curve Fit (y = {popt[0]:.4f}x^{popt[1]:.4f})')
         ax1.loglog(pi2_E4a, pi1_E4a, 'b*', label='Experimental Data')
         ax1.loglog(Re, blasius_equation(Re), 'ro', label='Current Operating Point') 
