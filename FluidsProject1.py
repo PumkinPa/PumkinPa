@@ -215,7 +215,7 @@ def main():
         ax1.grid(True, which="both", ls="-")
         ax1.legend()
         plt.tight_layout()
-        st.pyplot(fig2)
+        st.pyplot(fig1)
     # Additional information
     st.header("Additional Information")
     st.write(f"""
