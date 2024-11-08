@@ -133,7 +133,12 @@ def main():
             value=4.0,
             format="%.4e"
         )
-        
+        # Length
+        length = st.number_input(
+            f"Pipe Length ({unit_systems[unit_system]['length']})",
+            min_value=1.0,
+            value=2.0
+        )
         
         # Flow velocity
         velocity = st.number_input(
@@ -145,7 +150,7 @@ def main():
 
 
     # Calculate pressure drop
-    dp = calculate_pressure_drop(velocity, diameter, density, viscosity)
+    dp = calculate_pressure_drop(velocity, diameter, length, density, viscosity)
     Re = calculate_reynolds(velocity, diameter, density, viscosity)
     
     # Display results
